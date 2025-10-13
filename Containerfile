@@ -1,4 +1,4 @@
-FROM public.ecr.aws/docker/library/ubuntu:noble-20250925
+FROM public.ecr.aws/docker/library/ubuntu:noble-20251001
 
 # Prevent automatic apt cache cleanup, as caching is desired when running integration tests.
 # Instead, when installing packages during container builds, explicit cache cleanup is required.
@@ -68,5 +68,5 @@ CMD ["/sbin/init"]
 
 # Install pip last to speed up local container rebuilds.
 COPY files/*.py /usr/share/container-setup/
-RUN ln -s /usr/bin/python3.13 /usr/share/container-setup/python
+RUN ln -s /usr/bin/python3.14 /usr/share/container-setup/python
 RUN /usr/share/container-setup/python -B /usr/share/container-setup/setup.py
