@@ -1,4 +1,4 @@
-FROM public.ecr.aws/docker/library/ubuntu:noble-20251001
+FROM public.ecr.aws/docker/library/ubuntu:noble-20260113
 
 # Prevent automatic apt cache cleanup, as caching is desired when running integration tests.
 # Instead, when installing packages during container builds, explicit cache cleanup is required.
@@ -62,7 +62,7 @@ RUN apt-get update -y && \
 
 # Install PowerShell.
 COPY files/powershell.sh /usr/share/container-setup/
-RUN /usr/share/container-setup/powershell.sh 7.5.3
+RUN /usr/share/container-setup/powershell.sh 7.6.0-preview.6
 
 CMD ["/sbin/init"]
 
